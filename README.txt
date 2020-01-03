@@ -1,1 +1,1 @@
-Hello git and github
+This contains various projects displaying competency in coding. 
