@@ -1,0 +1,23 @@
+'''This program uses dynamic programming to solve fibonacci as efficiently as possible.
+The answers to sub-problems are stored using memoization'''
+
+num_in_fibonacci = 9
+function_calls = []
+
+def fibonacci(num,memo):
+  function_calls.append(1)
+  if num < 0:
+    print("Not a valid number")
+  if num <= 1:
+    return num
+  elif memo.get(num,None):
+    return memo.get(num)
+  else:
+    memo[num] = fibonacci(num - 1,memo) + fibonacci(num - 2,memo)
+  return memo[num]
+print(function_calls)
+#fibonacci(num_in_fibonacci,{})  
+fibonacci_result = fibonacci(num_in_fibonacci,{})
+print("Number {0} in the fibonacci sequence is {1}.".format(num_in_fibonacci, fibonacci_result))
+
+print("Fibonacci function called {0} total times!".format(len(function_calls)))
